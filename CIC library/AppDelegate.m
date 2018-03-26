@@ -7,6 +7,7 @@
 //
 
 #import "AppDelegate.h"
+#import "CICMainViewController.h"
 
 @interface AppDelegate ()
 
@@ -16,7 +17,23 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    // Override point for customization after application launch.
+    //键盘
+    IQKeyboardManager *manager = [IQKeyboardManager sharedManager];
+    manager.enable = YES;
+    manager.shouldResignOnTouchOutside = YES;
+    manager.shouldToolbarUsesTextFieldTintColor = YES;
+    manager.enableAutoToolbar = NO;
+    
+    
+    BOOL isLoginUser = [[NSUserDefaults standardUserDefaults] objectForKey:@"staff"];
+    if (isLoginUser) {
+        UIStoryboard *storyBoard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+        CICMainViewController *controller = [storyBoard instantiateViewControllerWithIdentifier:@"cicMain"];
+        self.window.rootViewController = controller;
+    }
+    
+    [self.window makeKeyAndVisible];
+    
     return YES;
 }
 

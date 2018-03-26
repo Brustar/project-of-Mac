@@ -1,0 +1,77 @@
+//
+//  CIC.pch
+//  CIC library
+//
+//  Created by Brustar.xiao on 2018/3/20.
+//  Copyright © 2018年 Brustar.xiao. All rights reserved.
+//
+
+#import <Availability.h>
+
+#define VIEW_WIDTH [UIApplication sharedApplication].keyWindow.frame.size.width
+#define VIEW_HEIGHT [UIApplication sharedApplication].keyWindow.frame.size.height
+#define WEAKSELF typeof(self) __unsafe_unretained weakSelf = self;
+#define STRONGWEAKSELF __strong typeof(weakSelf) strongSelf = weakSelf;
+
+#define BLOCKSELF __block typeof(self) blockSelf = self;
+
+#define DevicePad           [[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad
+#define DevicePortrait      UIInterfaceOrientationIsPortrait([[UIApplication sharedApplication] statusBarOrientation])
+#define BUNDLEPATH(fileName)                [[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:fileName]
+
+//系统字体
+#define kSystemFont(ksize)              [UIFont systemFontOfSize:ksize]
+
+//常用文字字体
+#define kArialFont(ksize)               [UIFont fontWithName:@"ArialMT" size:ksize]
+#define kArialBoldMTFont(ksize)         [UIFont fontWithName:@"Arial-BoldMT" size:ksize]
+
+//常用数字字体
+#define kOswaldDemiBoldFont(ksize)      [UIFont fontWithName:@"Oswald-DemiBold" size:ksize]
+#define kOswaldMediumFont(ksize)        [UIFont fontWithName:@"Oswald-Medium" size:ksize]
+#define kOswaldExtraLightFont(ksize)    [UIFont fontWithName:@"Oswald-ExtraLight" size:ksize]
+#define kOswaldLightFont(ksize)         [UIFont fontWithName:@"Oswald-Light" size:ksize]
+#define kOswaldBoldFont(ksize)          [UIFont fontWithName:@"Oswald-Bold" size:ksize]
+
+//主题颜色
+#define kThemeColor                     [UIColor colorWithHexString:@"FF5D4B"]
+//一般字体颜色
+#define kFontColor                      [UIColor colorWithHexString:@"4A4A4A"]
+//提示字体颜色
+#define kTipsFontColor                  [UIColor colorWithHexString:@"838383"]
+//浅字体颜色
+#define kTintFontColor                  [UIColor colorWithHexString:@"A1B3B9"]
+//段落文本字体颜色
+#define kTextFontColor                  [UIColor colorWithHexString:@"747C84"]
+//成功颜色
+#define kSuccessColor                   [UIColor colorWithHexString:@"73D544"]
+//完成颜色
+#define kCompleteColor                  [UIColor colorWithHexString:@"30B4FF"]
+//失败颜色
+#define kDelayedColor                   [UIColor colorWithHexString:@"FA5959"]
+//中止颜色
+#define kTerminatedColor                [UIColor colorWithHexString:@"959494"]
+//其他颜色
+#define kOtherColor(kcolor)             [UIColor colorWithHexString:kcolor]
+
+//储存
+#define LanguageCode                @"LanguageCode"
+
+//通知
+
+//服务器连接
+
+
+#ifdef __OBJC__
+#import <UIKit/UIKit.h>
+#import <Foundation/Foundation.h>
+
+#import "AppDelegate.h"
+#import "DTKit.h"
+#import <Masonry/Masonry.h>
+#import <SDWebImage/SDWebImageManager.h>
+#import <SDWebImage/UIImageView+WebCache.h>
+#import <IQKeyboardManager/IQKeyboardManager.h>
+#import <MBProgressHUD/MBProgressHUD.h>
+#import <MJRefresh/MJRefresh.h>
+#endif

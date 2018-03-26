@@ -7,8 +7,11 @@
 //
 
 #import "ViewController.h"
+#import "CICLoginController.h"
 
 @interface ViewController ()
+@property (weak, nonatomic) IBOutlet UIImageView *logo;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *topSpace;
 
 @end
 
@@ -16,7 +19,28 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view, typically from a nib.
+
+    _logo.transform = CGAffineTransformMakeScale(1.0, 1.0);
+    [UIView animateWithDuration:1.0 delay:2.0 options:UIViewAnimationOptionTransitionFlipFromTop animations:^{
+        _logo.transform = CGAffineTransformMakeScale(0.68, 0.68);
+    }completion:^(BOOL finish){
+        [UIView animateWithDuration:1.0 animations:^{
+            _topSpace.constant = 56;
+            [self.view layoutIfNeeded];
+        } completion:^(BOOL finished) {
+            //[self performSegueWithIdentifier:@"cic_login" sender:self];
+            UIStoryboard *storyBoard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+            CICLoginController *controller = [storyBoard instantiateViewControllerWithIdentifier:@"cicLogin"];
+            
+            UIWindow *window = UIApplication.sharedApplication.delegate.window;
+            window.rootViewController = controller;
+            [UIView transitionWithView:window
+                              duration:1.0
+                               options:UIViewAnimationOptionTransitionCrossDissolve
+                            animations:nil
+                            completion:nil];
+        }];
+    }];
 }
 
 
@@ -24,6 +48,5 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-
 
 @end

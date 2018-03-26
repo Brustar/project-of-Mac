@@ -1,0 +1,6 @@
+framework module Pods_CIC_library {
+  umbrella header "Pods-CIC library-umbrella.h"
+
+  export *
+  module * { export * }
+}
